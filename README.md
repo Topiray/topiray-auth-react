@@ -26,6 +26,22 @@ yarn add topiray-auth-react
 npm install react react-dom lucide-react @mui/material
 ```
 
+### CSS Import
+
+**Important**: You must import the CSS file for proper styling:
+
+```tsx
+// Import the CSS file in your main App component or index file
+import 'topiray-auth-react/dist/topiray-auth-react.css'
+```
+
+Or if you're using a bundler that supports CSS imports:
+
+```css
+/* In your main CSS file */
+@import 'topiray-auth-react/dist/topiray-auth-react.css';
+```
+
 ## Quick Start
 
 ```tsx
@@ -37,6 +53,9 @@ import {
   AuthCard, 
   SignInForm 
 } from 'topiray-auth-react'
+
+// Import the CSS file
+import 'topiray-auth-react/dist/topiray-auth-react.css'
 
 function App() {
   const handleSignIn = (email: string, password: string) => {
@@ -265,6 +284,9 @@ import {
   SignInForm,
   AlertMessage
 } from 'topiray-auth-react'
+
+// Import the CSS file
+import 'topiray-auth-react/dist/topiray-auth-react.css'
 
 function SignInPage() {
   const navigate = useNavigate()
@@ -512,9 +534,15 @@ const advancedTheme = createCustomTheme({
 
 ## CSS Custom Properties
 
-The library uses CSS custom properties for theming. You can override these directly:
+The library uses CSS custom properties for theming. Make sure to import the CSS file first, then you can override these properties:
+
+```tsx
+// First, import the CSS file
+import 'topiray-auth-react/dist/topiray-auth-react.css'
+```
 
 ```css
+/* Then override custom properties in your CSS */
 :root {
   --topiray-color-primary: #your-brand-color;
   --topiray-color-surface: #your-surface-color;
@@ -530,6 +558,9 @@ The library uses CSS custom properties for theming. You can override these direc
 
 ```tsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+// Import the CSS file once at the app level
+import 'topiray-auth-react/dist/topiray-auth-react.css'
 
 function App() {
   return (
