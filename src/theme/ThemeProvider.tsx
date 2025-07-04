@@ -23,6 +23,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, theme = 
     
     // Colors
     root.style.setProperty('--topiray-color-primary', theme.colors.primary)
+    root.style.setProperty('--topiray-color-tertiary', theme.colors.tertiary)
     root.style.setProperty('--topiray-color-secondary', theme.colors.secondary)
     root.style.setProperty('--topiray-color-background', theme.colors.background)
     root.style.setProperty('--topiray-color-surface', theme.colors.surface)

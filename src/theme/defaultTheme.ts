@@ -5,6 +5,7 @@ export const defaultTheme: ThemeConfig = {
     // Base colors - Modern neutral palette
     primary: '#3B82F6',
     secondary: '#6B7280',
+    tertiary: '#9CA3AF',
     background: '#FFFFFF',
     surface: '#F8FAFC',
     text: '#1F2937',

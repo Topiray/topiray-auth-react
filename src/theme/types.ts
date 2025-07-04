@@ -2,6 +2,7 @@ export interface ThemeColors {
   // Base colors
   primary: string
   secondary: string
+  tertiary: string
   background: string
   surface: string
   text: string

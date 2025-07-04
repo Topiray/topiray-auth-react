@@ -8,7 +8,7 @@ export const NavLinksLayout: React.FC<NavLinksLayoutProps> = ({
   right, 
   className 
 }) => {
-  const { theme } = useTheme()
+  useTheme()
 
   const containerClasses = [
     styles.container,

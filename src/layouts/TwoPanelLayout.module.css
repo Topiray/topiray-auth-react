@@ -36,7 +36,7 @@
 .leftContent {
   align-self: stretch;
   flex: 1;
-  background-color: var(--topiray-color-surface);
+  background-color: var(--topiray-color-tertiary);
   display: flex;
   flex-direction: column;
   align-items: center;
