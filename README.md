@@ -660,9 +660,6 @@ const handleSignIn: SignInFormProps['onSubmit'] = (email, password) => {
 4. Add tests for new functionality
 5. Submit a pull request
 
-## License
-
-MIT License - see LICENSE file for details.
 
 ## Support
 
