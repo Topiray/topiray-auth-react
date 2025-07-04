@@ -55,7 +55,7 @@ const customTheme = createCustomTheme({
   },
   brand: {
     logo: 'https://via.placeholder.com/34x34/9333ea/ffffff?text=P',
-    logoAlt: 'Purple Logo'
+    logoAlt: 'Purple Logo',
   }
 })
 
@@ -534,7 +534,6 @@ const Demo: React.FC = () => {
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
                 <Button>Primary Button</Button>
                 <Button variant="secondary">Secondary Button</Button>
-                <Button variant="social" icon="google">Google</Button>
                 <Button isLoading>Loading Button</Button>
               </div>
             </section>
