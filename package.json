@@ -1,8 +1,9 @@
 {
   "name": "topiray-auth-react",
   "version": "1.0.0",
+  "type": "module",
   "description": "A customizable React authentication component library",
-  "main": "dist/index.js",
+  "main": "dist/index.es.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "files": [
