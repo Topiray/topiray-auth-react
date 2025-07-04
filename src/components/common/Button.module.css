@@ -1,0 +1,144 @@
+/* Button Base Styles */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--topiray-radius-md);
+  font-family: var(--topiray-font-family);
+  font-weight: var(--topiray-font-weight-medium);
+  cursor: pointer;
+  transition: all var(--topiray-transition-normal);
+  box-shadow: var(--topiray-shadow-sm);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: var(--topiray-shadow-md);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none !important;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--topiray-shadow-lg);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: var(--topiray-shadow-sm);
+}
+
+/* Button Variants */
+.primary {
+  background-color: var(--topiray-button-primary);
+  color: var(--topiray-button-primary-text);
+  border: 1px solid var(--topiray-button-primary);
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--topiray-color-primary);
+  opacity: 0.9;
+}
+
+.secondary {
+  background-color: var(--topiray-button-secondary);
+  color: var(--topiray-button-secondary-text);
+  border: 1px solid var(--topiray-color-border);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: var(--topiray-color-hover);
+  border-color: var(--topiray-color-primary);
+}
+
+.social {
+  background-color: var(--topiray-button-social);
+  color: var(--topiray-button-social-text);
+  border: 1px solid var(--topiray-button-social);
+}
+
+.social:hover:not(:disabled) {
+  background-color: var(--topiray-color-hover);
+  opacity: 0.9;
+}
+
+/* Button Sizes */
+.sm {
+  padding: var(--topiray-spacing-xs) var(--topiray-spacing-sm);
+  font-size: var(--topiray-font-size-sm);
+  min-height: 32px;
+}
+
+.md {
+  padding: var(--topiray-spacing-sm) var(--topiray-spacing-md);
+  font-size: var(--topiray-font-size-md);
+  min-height: 40px;
+}
+
+.lg {
+  padding: var(--topiray-spacing-md) var(--topiray-spacing-lg);
+  font-size: var(--topiray-font-size-lg);
+  min-height: 48px;
+}
+
+/* Full Width */
+.fullWidth {
+  width: 100%;
+}
+
+/* Button Content */
+.content {
+  display: flex;
+  align-items: center;
+  gap: var(--topiray-spacing-xs);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: var(--topiray-spacing-xs);
+}
+
+.loadingText {
+  font-size: inherit;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.1em;
+}
+
+.text {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Social Button Specific Styles */
+.social .icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social .icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.social .icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+} 

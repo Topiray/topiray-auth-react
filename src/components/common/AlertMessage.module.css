@@ -1,0 +1,113 @@
+/* Alert Base Styles */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--topiray-spacing-sm) var(--topiray-spacing-md);
+  border-radius: var(--topiray-radius-md);
+  border: 1px solid transparent;
+  font-family: var(--topiray-font-family);
+  font-size: var(--topiray-font-size-sm);
+  margin-bottom: var(--topiray-spacing-md);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: var(--topiray-spacing-xs);
+  flex: 1;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.message {
+  font-size: inherit;
+  line-height: var(--topiray-line-height-normal);
+  margin: 0;
+  flex: 1;
+}
+
+.close {
+  background: none;
+  border: none;
+  padding: var(--topiray-spacing-xs);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--topiray-radius-sm);
+  transition: all var(--topiray-transition-fast);
+  margin-left: var(--topiray-spacing-sm);
+}
+
+.close:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.closeIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Alert Variants */
+.success {
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: var(--topiray-color-success);
+}
+
+.success .icon {
+  color: var(--topiray-color-success);
+}
+
+.success .close {
+  color: var(--topiray-color-success);
+}
+
+.error {
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: var(--topiray-color-error);
+}
+
+.error .icon {
+  color: var(--topiray-color-error);
+}
+
+.error .close {
+  color: var(--topiray-color-error);
+}
+
+.warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: var(--topiray-color-warning);
+}
+
+.warning .icon {
+  color: var(--topiray-color-warning);
+}
+
+.warning .close {
+  color: var(--topiray-color-warning);
+}
+
+.info {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: var(--topiray-color-info);
+}
+
+.info .icon {
+  color: var(--topiray-color-info);
+}
+
+.info .close {
+  color: var(--topiray-color-info);
+} 

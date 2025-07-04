@@ -1,0 +1,26 @@
+.authCard {
+  width: 100%;
+  border-radius: var(--topiray-radius-lg);
+  background-color: var(--topiray-color-surface);
+  border: 1px solid var(--topiray-color-border);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--topiray-spacing-lg) var(--topiray-spacing-xl);
+  gap: var(--topiray-spacing-lg);
+  max-width: 420px;
+  font-family: var(--topiray-font-family);
+  color: var(--topiray-color-text);
+}
+
+@media screen and (max-width: 420px) {
+  .authCard {
+    padding-left: var(--topiray-spacing-sm);
+    padding-right: var(--topiray-spacing-sm);
+    box-sizing: border-box;
+    max-width: auto;
+    width: 100%;
+  }
+} 

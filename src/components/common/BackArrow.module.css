@@ -1,0 +1,33 @@
+.button {
+  cursor: pointer;
+  border: none;
+  padding: var(--topiray-spacing-xs);
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--topiray-radius-md);
+  transition: all var(--topiray-transition-normal);
+  color: var(--topiray-color-text);
+}
+
+.button:hover:not(.disabled) {
+  background-color: var(--topiray-color-hover);
+}
+
+.button:active:not(.disabled) {
+  background-color: var(--topiray-color-active);
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: inherit;
+} 
