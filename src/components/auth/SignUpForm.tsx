@@ -36,11 +36,11 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
           <div className={styles.titleContainer}>
             <b className={styles.title}>Create your account</b>
           </div>
-          {(logoSrc || theme.brand.logo) && theme.customization.showLogo && (
+          {(logoSrc || theme.brand.secondaryLogo) && theme.customization.showLogo && (
             <img 
               className={styles.logoIcon} 
               alt={theme.brand.logoAlt || 'Logo'} 
-              src={logoSrc || theme.brand.logo} 
+              src={logoSrc || theme.brand.secondaryLogo} 
             />
           )}
         </div>
