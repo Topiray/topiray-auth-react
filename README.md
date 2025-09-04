@@ -1,4 +1,7 @@
 # Topiray Auth React Component Library
+![NPM Version](https://img.shields.io/npm/v/topiray-auth-react)
+![NPM Downloads](https://img.shields.io/npm/dm/topiray-auth-react)
+![NPM License](https://img.shields.io/npm/l/topiray-auth-react)
 
 A comprehensive, themeable React component library for authentication flows. Built with TypeScript, CSS Modules, and designed for maximum customization and accessibility.
 
