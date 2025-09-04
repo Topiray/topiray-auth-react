@@ -10,6 +10,7 @@ export const SignInForm: React.FC<SignInFormProps> = ({
   onForgotPassword,
   onSignUp,
   onSocialLogin,
+  authProviders = ['apple', 'google', 'facebook'],
   logoSrc,
   isLoading = false,
   className
@@ -86,7 +87,7 @@ export const SignInForm: React.FC<SignInFormProps> = ({
             <div className={styles.dividerLine} />
           </div>
 
-          <SocialLoginButtons onSocialLogin={onSocialLogin} isLoading={isLoading} />
+          <SocialLoginButtons providers={authProviders} onSocialLogin={onSocialLogin} isLoading={isLoading} />
         </>
       )}
 

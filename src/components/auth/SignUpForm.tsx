@@ -11,6 +11,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
   onSignIn,
   onSocialLogin,
   logoSrc,
+  authProviders = ['apple', 'google', 'facebook'],
   isLoading = false,
   className
 }) => {
@@ -108,7 +109,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
             <div className={styles.dividerLine} />
           </div>
 
-          <SocialLoginButtons onSocialLogin={onSocialLogin} isLoading={isLoading} />
+          <SocialLoginButtons providers={authProviders} onSocialLogin={onSocialLogin} isLoading={isLoading} />
         </>
       )}
 

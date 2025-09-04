@@ -1,5 +1,7 @@
 import { ReactNode } from 'react'
 
+type AuthProvider = 'apple' | 'google' | 'facebook';
+
 export interface AuthCardProps {
   children: ReactNode
   className?: string
@@ -9,8 +11,9 @@ export interface SignInFormProps {
   onSubmit?: (email: string, password: string) => void
   onForgotPassword?: () => void
   onSignUp?: () => void
-  onSocialLogin?: (provider: 'apple' | 'google' | 'facebook') => void
+  onSocialLogin?: (provider: AuthProvider) => void
   logoSrc?: string
+  authProviders?: AuthProvider[]
   isLoading?: boolean
   className?: string
 }
@@ -18,8 +21,9 @@ export interface SignInFormProps {
 export interface SignUpFormProps {
   onSubmit?: (email: string, password: string, accountType: 'business' | 'individual') => void
   onSignIn?: () => void
-  onSocialLogin?: (provider: 'apple' | 'google' | 'facebook') => void
+  onSocialLogin?: (provider: AuthProvider) => void
   logoSrc?: string
+  authProviders?: AuthProvider[]
   isLoading?: boolean
   className?: string
 }

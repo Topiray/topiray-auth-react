@@ -8,7 +8,7 @@ A comprehensive, themeable React component library for authentication flows. Bui
 - 🔧 **CSS Modules** - Strongly-typed, scoped styling
 - 📱 **Responsive Design** - Mobile-first approach with breakpoint support
 - ♿ **Accessible** - ARIA labels, keyboard navigation, focus management
-- 🔒 **Complete Auth Flow** - Sign in/up, 2FA, email verification, password reset
+- 🔐 **Complete Auth Flow** - Sign in/up, 2FA, email verification, password reset
 - ⚡ **TypeScript** - Full type safety and IntelliSense support
 - 🎯 **Tree Shakeable** - Import only what you need
 
@@ -72,6 +72,7 @@ function App() {
               onForgotPassword={() => console.log('Forgot password')}
               onSignUp={() => console.log('Sign up')}
               onSocialLogin={(provider) => console.log('Social:', provider)}
+              authProviders={['google', 'apple', 'facebook']}
             />
           </AuthCard>
         }
@@ -97,7 +98,7 @@ import { AuthCard } from 'topiray-auth-react'
 ```
 
 #### SignInForm
-Complete sign-in form with email/password and social login options.
+Complete sign-in form with email/password and customizable social login options.
 
 ```tsx
 import { SignInForm } from 'topiray-auth-react'
@@ -107,13 +108,14 @@ import { SignInForm } from 'topiray-auth-react'
   onForgotPassword={() => navigate('/forgot-password')}
   onSignUp={() => navigate('/sign-up')}
   onSocialLogin={(provider) => handleSocialLogin(provider)}
+  authProviders={['google', 'apple', 'facebook']}
   isLoading={isSigningIn}
   logoSrc="/your-logo.png"
 />
 ```
 
 #### SignUpForm
-Account creation form with business/individual selection.
+Account creation form with business/individual selection and customizable social login.
 
 ```tsx
 import { SignUpForm } from 'topiray-auth-react'
@@ -122,7 +124,9 @@ import { SignUpForm } from 'topiray-auth-react'
   onSubmit={(email, password, accountType) => handleSignUp(email, password, accountType)}
   onSignIn={() => navigate('/sign-in')}
   onSocialLogin={(provider) => handleSocialLogin(provider)}
+  authProviders={['google', 'apple', 'facebook']}
   isLoading={isSigningUp}
+  logoSrc="/your-logo.png"
 />
 ```
 
@@ -269,6 +273,46 @@ import { SocialLoginButtons } from 'topiray-auth-react'
 />
 ```
 
+### Customizing Social Login Providers
+
+You can customize which social login providers are displayed using the `authProviders` prop on both `SignInForm` and `SignUpForm`:
+
+```tsx
+// Show only Google and Apple
+<SignInForm
+  authProviders={['google', 'apple']}
+  onSocialLogin={(provider) => handleSocialLogin(provider)}
+  // ... other props
+/>
+
+// Show all available providers (default)
+<SignUpForm
+  authProviders={['apple', 'google', 'facebook']}
+  onSocialLogin={(provider) => handleSocialLogin(provider)}
+  // ... other props
+/>
+
+// Show only Google
+<SignInForm
+  authProviders={['google']}
+  onSocialLogin={(provider) => handleSocialLogin(provider)}
+  // ... other props
+/>
+
+// Hide social login entirely by setting empty array or omitting the prop
+<SignInForm
+  authProviders={[]}
+  // ... other props (onSocialLogin not needed if no providers)
+/>
+```
+
+**Available providers:**
+- `'apple'` - Apple Sign In
+- `'google'` - Google Sign In  
+- `'facebook'` - Facebook Login
+
+**Default behavior:** If `authProviders` is not specified, it defaults to `['apple', 'google', 'facebook']`.
+
 ## Real-World Usage Examples
 
 ### Complete Sign-In Page
@@ -320,6 +364,20 @@ function SignInPage() {
     }
   }
 
+  const handleSocialLogin = async (provider: 'google' | 'apple' | 'facebook') => {
+    try {
+      setError(null)
+      setIsLoading(true)
+      
+      // Initiate social login flow
+      await socialSignInAPI(provider)
+    } catch (error) {
+      setError(`Failed to sign in with ${provider}`)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <TwoPanelLayout
@@ -335,7 +393,8 @@ function SignInPage() {
               onSubmit={handleSignIn}
               onForgotPassword={() => navigate('/forgot-password')}
               onSignUp={() => navigate('/sign-up')}
-              onSocialLogin={(provider) => handleSocialLogin(provider)}
+              onSocialLogin={handleSocialLogin}
+              authProviders={['google', 'apple']} // Only show Google and Apple
               isLoading={isLoading}
             />
           </AuthCard>
@@ -636,6 +695,7 @@ function SignInPage() {
   return (
     <SignInForm
       onSubmit={handleSignIn}
+      authProviders={['google', 'apple']}
       // Pass validation errors to form
     />
   )
@@ -665,6 +725,11 @@ const myTheme: ThemeConfig = {
 // Component props are fully typed
 const handleSignIn: SignInFormProps['onSubmit'] = (email, password) => {
   // email and password are properly typed as strings
+}
+
+// Social login providers are strictly typed
+const handleSocialLogin = (provider: 'google' | 'apple' | 'facebook') => {
+  // provider parameter is type-safe
 }
 ```
 
@@ -701,4 +766,4 @@ For questions and support:
 
 ---
 
-Built with ❤️ for the React community 
+Built with ❤️ for the React community
