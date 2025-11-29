@@ -509,6 +509,7 @@ const corporateTheme = createCustomTheme({
   colors: {
     primary: '#0066cc',
     secondary: '#6b7280',
+    tertiary: "#f3f4f6",
     background: '#ffffff',
     surface: '#f9fafb',
     text: '#111827',
