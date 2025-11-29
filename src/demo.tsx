@@ -148,6 +148,7 @@ const Demo: React.FC = () => {
     notifications: {}
   })
   const [loadingStates, setLoadingStates] = useState<Record<string, boolean>>({})
+  const [sidebarOpen, setSidebarOpen] = useState(true)
 
   const themes = [
     { name: 'Light', value: defaultTheme },
@@ -567,12 +568,12 @@ const Demo: React.FC = () => {
 
       case 'layout':
         return (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', padding: '2rem', height: '100%' }}>
             <h2 style={{ color: 'var(--topiray-color-text)' }}>Layout Components</h2>
             
             <section>
               <h3 style={{ color: 'var(--topiray-color-text)' }}>Two Panel Layout</h3>
-              <div style={{ height: '400px', border: '1px solid var(--topiray-color-border)', borderRadius: 'var(--topiray-radius-md)' }}>
+              <div style={{ border: '1px solid var(--topiray-color-border)', borderRadius: 'var(--topiray-radius-md)' }}>
                 <TwoPanelLayout
                   leftContent={
                     <div style={{ padding: '2rem', background: 'var(--topiray-color-primary)', color: 'white', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -634,13 +635,42 @@ const Demo: React.FC = () => {
         backgroundColor: 'var(--topiray-color-background)',
         color: 'var(--topiray-color-text)'
       }}>
+        {/* Menu Button */}
+        <button
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          style={{
+            position: 'fixed',
+            top: '1rem',
+            left: sidebarOpen ? '280px' : '1rem',
+            zIndex: 999,
+            padding: '0.5rem 0.75rem',
+            backgroundColor: 'var(--topiray-color-primary)',
+            color: 'white',
+            border: 'none',
+            borderRadius: 'var(--topiray-radius-md)',
+            cursor: 'pointer',
+            fontSize: '1.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '2.5rem',
+            height: '2.5rem',
+            transition: 'all var(--topiray-transition-normal)'
+          }}
+          title={sidebarOpen ? 'Hide sidebar' : 'Show sidebar'}
+        >
+          {sidebarOpen ? '✕' : '☰'}
+        </button>
+
         {/* Sidebar */}
         <div style={{ 
-          width: '280px', 
+          width: sidebarOpen ? '280px' : '0px',
           backgroundColor: 'var(--topiray-color-surface)', 
-          padding: '1.5rem',
-          borderRight: '1px solid var(--topiray-color-border)',
-          overflowY: 'auto'
+          padding: sidebarOpen ? '1.5rem' : '0',
+          borderRight: sidebarOpen ? '1px solid var(--topiray-color-border)' : 'none',
+          overflowY: 'auto',
+          transition: 'all var(--topiray-transition-normal)',
+          position: 'relative'
         }}>
           <div style={{ marginBottom: '2rem' }}>
             <h2 style={{ margin: '0 0 0.5rem 0', fontSize: '1.25rem' }}>Topiray Auth Demo</h2>
@@ -746,7 +776,7 @@ const Demo: React.FC = () => {
         </div>
 
         {/* Main content */}
-        <div style={{ flex: 1, overflow: 'auto' }}>
+        <div style={{ flex: 1, overflow: 'auto', marginTop: '0' }}>
           {renderPage()}
         </div>
       </div>

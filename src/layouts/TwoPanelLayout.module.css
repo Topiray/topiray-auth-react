@@ -3,7 +3,8 @@
   position: relative;
   background-color: var(--topiray-color-background);
   min-height: 100vh;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -12,12 +13,15 @@
 }
 
 .leftPane {
-  align-self: stretch;
+  align-self: flex-start;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
 }
 
 .leftBackground {
@@ -69,16 +73,15 @@
 }
 
 .rightPane {
-  align-self: stretch;
+  align-self: flex-start;
   flex: 0.9833;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 0px var(--topiray-spacing-sm);
+  justify-content: space-around;
+  padding: var(--topiray-spacing-lg) var(--topiray-spacing-sm);
   box-sizing: border-box;
   min-height: 100vh;
-  overflow: auto;
 }
 
 /* Responsive Design */
