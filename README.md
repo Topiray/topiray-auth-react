@@ -15,6 +15,11 @@ A comprehensive, themeable React component library for authentication flows. Bui
 - ⚡ **TypeScript** - Full type safety and IntelliSense support
 - 🎯 **Tree Shakeable** - Import only what you need
 
+<img width="1910" height="892" alt="image" src="https://github.com/user-attachments/assets/1eb04b72-be57-477a-96de-2879d2fc9191" />
+<img width="1910" height="892" alt="image" src="https://github.com/user-attachments/assets/089695f9-9558-4cea-af24-fec94ecd2ebb" />
+<img width="1910" height="892" alt="image" src="https://github.com/user-attachments/assets/dfc87f46-eb1d-4247-9404-6ab136fc5055" />
+
+
 ## Installation
 
 ```bash
