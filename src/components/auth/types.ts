@@ -1,3 +1,4 @@
+import { LucideProps } from 'lucide-react';
 import { ReactNode } from 'react'
 
 type AuthProvider = 'apple' | 'google' | 'facebook';
@@ -18,11 +19,17 @@ export interface SignInFormProps {
   className?: string
 }
 
+export interface AccountType {
+  label: string
+  icon: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>
+}
+
 export interface SignUpFormProps {
-  onSubmit?: (email: string, password: string, accountType: 'business' | 'individual') => void
+  onSubmit?: (email: string, password: string, accountType: string | null) => void
   onSignIn?: () => void
   onSocialLogin?: (provider: AuthProvider) => void
   logoSrc?: string
+  accountTypes?: AccountType[]
   authProviders?: AuthProvider[]
   isLoading?: boolean
   className?: string

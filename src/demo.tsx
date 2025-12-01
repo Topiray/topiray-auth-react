@@ -77,7 +77,7 @@ const mockAPI = {
       }, 1500)
     }),
     
-  signUp: (email: string, password: string, accountType: 'business' | 'individual') =>
+  signUp: (email: string, password: string, accountType: string | null) =>
     new Promise<{ succeeded: boolean; error?: string }>((resolve) => {
       setTimeout(() => {
         if (email.includes('exists')) {
@@ -220,7 +220,7 @@ const Demo: React.FC = () => {
     }
   }
 
-  const handleSignUp = async (email: string, password: string, accountType: 'business' | 'individual') => {
+  const handleSignUp = async (email: string, password: string, accountType: string | null) => {
     setLoading('signup', true)
     try {
       const result = await mockAPI.signUp(email, password, accountType)
