@@ -18,6 +18,7 @@ import {
   SignInForm,
   SignUpForm,
   ForgottenPasswordForm,
+  ResetPasswordForm,
   VerifyEmailForm,
   TwoFactorSetupForm,
   TwoFactorSetupEnterVerificationForm,
@@ -160,6 +161,7 @@ const Demo: React.FC = () => {
     { id: 'signin', name: 'Sign In', category: 'auth' },
     { id: 'signup', name: 'Sign Up', category: 'auth' },
     { id: 'forgot', name: 'Forgot Password', category: 'auth' },
+    { id: 'reset', name: 'Reset Password', category: 'auth' },
     { id: 'verify', name: 'Verify Email', category: 'auth' },
     { id: 'twofactor-setup', name: '2FA Setup', category: '2fa' },
     { id: 'twofactor-verify', name: '2FA Verify', category: '2fa' },
@@ -243,11 +245,25 @@ const Demo: React.FC = () => {
     try {
       await mockAPI.forgotPassword(email)
       setNotification('success', 'Password reset email sent!')
-      navigateTo('signin')
+      navigateTo('reset', { email })
     } catch (error) {
       setNotification('error', 'Failed to send reset email')
     } finally {
       setLoading('forgot', false)
+    }
+  }
+
+  const handleResetPassword = async (newPassword: string) => {
+    setLoading('reset', true)
+    try {
+      // Simulate API call to reset password
+      await new Promise(resolve => setTimeout(resolve, 1500))
+      setNotification('success', 'Password reset successfully!')
+      navigateTo('signin')
+    } catch (error) {
+      setNotification('error', 'Failed to reset password')
+    } finally {
+      setLoading('reset', false)
     }
   }
 
@@ -422,6 +438,14 @@ const Demo: React.FC = () => {
           <ForgottenPasswordForm
             onSubmit={handleForgotPassword}
             isLoading={loadingStates.forgot}
+          />
+        )
+
+      case 'reset':
+        return renderWithLayout(
+          <ResetPasswordForm
+            onSubmit={handleResetPassword}
+            isLoading={loadingStates.reset}
           />
         )
 

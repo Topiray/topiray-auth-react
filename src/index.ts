@@ -27,6 +27,7 @@ export { VerifyEmailForm } from './components/auth/VerifyEmailForm'
 export { TwoFactorSetupForm } from './components/auth/TwoFactorSetupForm'
 export { TwoFactorSetupEnterVerificationForm } from './components/auth/TwoFactorSetupEnterVerificationForm'
 export { TwoFactorSetupCompleteForm } from './components/auth/TwoFactorSetupCompleteForm'
+export { ResetPasswordForm } from './components/auth/ResetPasswordForm'
 export type { 
   AuthCardProps,
   SignInFormProps, 

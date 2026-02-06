@@ -41,6 +41,13 @@ export interface ForgottenPasswordFormProps {
   className?: string
 }
 
+export interface ResetPasswordFormProps {
+  onSubmit: (newPassword: string) => void
+  isLoading?: boolean
+  className?: string
+  description?: string
+}
+
 export interface VerifyEmailFormProps {
   onSubmit: () => void
   onResendEmail: () => void
