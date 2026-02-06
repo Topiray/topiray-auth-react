@@ -13,7 +13,7 @@ export const SocialLoginButtons: React.FC<SocialLoginButtonsProps> = ({
   orientation = 'horizontal',
   className
 }) => {
-  const { theme } = useTheme()
+  useTheme()
 
   const containerClasses = [
     styles.container,

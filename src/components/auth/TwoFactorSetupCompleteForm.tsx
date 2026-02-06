@@ -15,7 +15,7 @@ export const TwoFactorSetupCompleteForm: React.FC<TwoFactorSetupCompleteFormProp
   isLoading = false,
   className
 }) => {
-  const { theme } = useTheme()
+  useTheme()
   const [copied, setCopied] = useState(false)
 
   const handleDone = () => {

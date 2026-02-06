@@ -11,7 +11,7 @@ export const BackArrow: React.FC<BackArrowProps> = ({
   iconClassName = '',
   onBack
 }) => {
-  const { theme } = useTheme()
+  useTheme()
 
   const handleBack = () => {
     if (disabled) return

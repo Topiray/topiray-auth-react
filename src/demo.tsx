@@ -78,7 +78,7 @@ const mockAPI = {
       }, 1500)
     }),
     
-  signUp: (email: string, password: string, accountType: string | null) =>
+  signUp: (email: string, _password: string, _accountType: string | null) =>
     new Promise<{ succeeded: boolean; error?: string }>((resolve) => {
       setTimeout(() => {
         if (email.includes('exists')) {
@@ -89,12 +89,12 @@ const mockAPI = {
       }, 2000)
     }),
     
-  forgotPassword: (email: string) =>
+  forgotPassword: (_email: string) =>
     new Promise<{ succeeded: boolean }>((resolve) => {
       setTimeout(() => resolve({ succeeded: true }), 1000)
     }),
     
-  resendEmail: (email: string) =>
+  resendEmail: (_email: string) =>
     new Promise<{ succeeded: boolean }>((resolve) => {
       setTimeout(() => resolve({ succeeded: true }), 800)
     }),
@@ -253,7 +253,7 @@ const Demo: React.FC = () => {
     }
   }
 
-  const handleResetPassword = async (newPassword: string) => {
+  const handleResetPassword = async (_newPassword: string) => {
     setLoading('reset', true)
     try {
       // Simulate API call to reset password

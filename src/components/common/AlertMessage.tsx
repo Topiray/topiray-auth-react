@@ -11,7 +11,7 @@ export const AlertMessage: React.FC<AlertMessageProps> = ({
   dismissible = false,
   className
 }) => {
-  const { theme } = useTheme()
+  useTheme()
 
   const getIcon = () => {
     switch (type) {

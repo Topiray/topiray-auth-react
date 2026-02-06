@@ -7,7 +7,7 @@ export const AuthCard: React.FC<AuthCardProps> = ({
   children,
   className
 }) => {
-  const { theme } = useTheme()
+  useTheme()
 
   const cardClasses = [
     styles.authCard,
