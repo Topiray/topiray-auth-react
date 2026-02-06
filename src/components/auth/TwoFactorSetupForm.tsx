@@ -22,24 +22,21 @@ export const TwoFactorSetupForm: FunctionComponent<TwoFactorSetupFormProps> = ({
   isLoading = false,
   backArrowFallbackRoute = "/accountstatus"
 }) => {
-  const qrCodeRef = useRef<HTMLDivElement>(null);
+  const qrCodeRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     if (qrCodeUri && qrCodeRef.current) {
       // Generate QR code using the qrcode library
       import('qrcode').then(QRCode => {
         if (qrCodeRef.current) {
-          qrCodeRef.current.innerHTML = '';
           QRCode.toCanvas(qrCodeRef.current, qrCodeUri, {
             width: 193,
             margin: 1
           });
         }
       }).catch(() => {
-        // Fallback to showing the URI text
-        if (qrCodeRef.current) {
-          qrCodeRef.current.innerHTML = `<p style="font-size: 12px; word-break: break-all; color: var(--color-white);">${qrCodeUri}</p>`;
-        }
+        // Fallback - could display error message
+        console.error('Failed to generate QR code');
       });
     }
   }, [qrCodeUri]);
@@ -90,16 +87,14 @@ export const TwoFactorSetupForm: FunctionComponent<TwoFactorSetupFormProps> = ({
             <CircularProgress size={40} sx={{ color: 'var(--color-white)' }} />
           </div>
         ) : qrCodeUri ? (
-          <div 
+          <canvas
             ref={qrCodeRef}
             style={{ 
               padding: '16px', 
               backgroundColor: 'white', 
               borderRadius: '15.36px',
               minHeight: '192px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
+              display: 'block'
             }}
           />
         ) : (

@@ -88,6 +88,7 @@
   padding: 0px 0px var(--topiray-spacing-md);
   gap: var(--topiray-spacing-sm);
   text-align: center;
+  place-items: center;
 }
 
 .qrLoading {
