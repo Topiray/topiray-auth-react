@@ -36,7 +36,8 @@ export type {
   VerifyEmailFormProps,
   TwoFactorSetupFormProps,
   TwoFactorSetupEnterVerificationFormProps,
-  TwoFactorSetupCompleteFormProps
+  TwoFactorSetupCompleteFormProps,
+  ResetPasswordFormProps
 } from './components/auth/types'
 
 export const placeholder = 'Building component library...'
