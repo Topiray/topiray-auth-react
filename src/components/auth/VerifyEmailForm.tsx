@@ -10,7 +10,8 @@ export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
   onResendEmail,
   email,
   isLoading = false,
-  className
+  className,
+  backArrowFallbackRoute = "/signup"
 }) => {
   const { theme } = useTheme()
 
@@ -26,7 +27,7 @@ export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
           <BackArrow 
             disabled={isLoading}
             className={styles.backArrowIcon}
-            fallbackRoute="/signup"
+            fallbackRoute={backArrowFallbackRoute}
           />
           <div className={styles.progressContainer}>
             <div className={styles.progressBar} />

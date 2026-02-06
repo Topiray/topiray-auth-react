@@ -11,6 +11,7 @@ interface TwoFactorSetupFormProps {
   qrCodeUri?: string | null;
   sharedKey?: string | null;
   isLoading?: boolean;
+  backArrowFallbackRoute?: string;
 }
 
 export const TwoFactorSetupForm: FunctionComponent<TwoFactorSetupFormProps> = ({
@@ -18,7 +19,8 @@ export const TwoFactorSetupForm: FunctionComponent<TwoFactorSetupFormProps> = ({
   onCancel,
   qrCodeUri,
   sharedKey,
-  isLoading = false
+  isLoading = false,
+  backArrowFallbackRoute = "/accountstatus"
 }) => {
   const qrCodeRef = useRef<HTMLDivElement>(null);
 
@@ -61,7 +63,7 @@ export const TwoFactorSetupForm: FunctionComponent<TwoFactorSetupFormProps> = ({
           disabled={isLoading}
           className={styles.backArrowIcon}
           iconClassName={styles.vectorIcon}
-          fallbackRoute="/accountstatus"
+          fallbackRoute={backArrowFallbackRoute}
         />
         <div className={styles.backArrowIcon1} />
       </div>

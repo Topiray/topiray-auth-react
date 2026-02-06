@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BackArrow } from '../common/BackArrow'
 import { Button } from '../common/Button'
 import { AlertMessage } from '../common/AlertMessage'
@@ -10,12 +10,18 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
   onSubmit,
   isLoading = false,
   className,
-  description = "Enter your new password below. Make sure it's secure and at least 8 characters long."
+  description = "Enter your new password below. Make sure it's secure and at least 8 characters long.",
+  errorStr = null,
+  backArrowFallbackRoute = "/signin"
 }) => {
   const { theme } = useTheme()
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [error, setError] = useState('')
+  const [error, setError] = useState(errorStr || '')
+
+  useEffect(() => {
+    setError(errorStr || '')
+  }, [errorStr])
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -35,12 +41,6 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
       setError('Passwords do not match')
       return
     }
-
-    if (password.length < 8) {
-      setError('Password must be at least 8 characters long')
-      return
-    }
-
     onSubmit(password)
   }
 
@@ -54,7 +54,7 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
       {theme.customization.showBackArrow && (
         <div className={styles.backArrow}>
           <BackArrow 
-            fallbackRoute="/signin"
+            fallbackRoute={backArrowFallbackRoute}
             className={styles.backArrowIcon}
             disabled={isLoading}
           />

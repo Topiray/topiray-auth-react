@@ -8,7 +8,8 @@ import styles from './ForgottenPasswordForm.module.css'
 export const ForgottenPasswordForm: React.FC<ForgottenPasswordFormProps> = ({
   onSubmit,
   isLoading = false,
-  className
+  className,
+  backArrowFallbackRoute = "/signin"
 }) => {
   const { theme } = useTheme()
   const [email, setEmail] = useState('')
@@ -28,7 +29,7 @@ export const ForgottenPasswordForm: React.FC<ForgottenPasswordFormProps> = ({
       {theme.customization.showBackArrow && (
         <div className={styles.backArrow}>
           <BackArrow 
-            fallbackRoute="/signin"
+            fallbackRoute={backArrowFallbackRoute}
             className={styles.backArrowIcon}
             disabled={isLoading}
           />

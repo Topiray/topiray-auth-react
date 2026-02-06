@@ -38,7 +38,8 @@ export interface SignUpFormProps {
 export interface ForgottenPasswordFormProps {
   onSubmit: (email: string) => void
   isLoading?: boolean
-  className?: string
+  className?: string,
+  backArrowFallbackRoute?: string
 }
 
 export interface ResetPasswordFormProps {
@@ -46,6 +47,8 @@ export interface ResetPasswordFormProps {
   isLoading?: boolean
   className?: string
   description?: string
+  errorStr?: string | null
+  backArrowFallbackRoute?: string
 }
 
 export interface VerifyEmailFormProps {
@@ -54,6 +57,7 @@ export interface VerifyEmailFormProps {
   email?: string | null
   isLoading?: boolean
   className?: string
+  backArrowFallbackRoute?: string
 }
 
 export interface TwoFactorSetupFormProps {
