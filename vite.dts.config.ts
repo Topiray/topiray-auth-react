@@ -13,7 +13,7 @@ export default defineConfig({
       fileName: () => 'index.d.ts'
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime']
+      external: ['react', 'react-dom', 'react/jsx-runtime']
     }
   }
 })

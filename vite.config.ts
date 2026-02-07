@@ -4,8 +4,14 @@ import { resolve } from 'path'
 import dts from 'vite-plugin-dts'
 
 export default defineConfig({
+  mode: 'production',
+  define: {
+    'process.env.NODE_ENV': '"production"'
+  },
   plugins: [
-    react(),
+    react({
+      jsxRuntime: 'automatic'
+    }),
     dts({
       include: ['src/**/*'],
       exclude: ['src/**/*.test.*', 'src/**/*.stories.*'],
@@ -20,11 +26,12 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
+      external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM'
+          'react-dom': 'ReactDOM',
+          'react/jsx-runtime': 'jsxRuntime'
         }
       }
     }
