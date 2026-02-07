@@ -3,10 +3,7 @@ import dts from 'rollup-plugin-dts'
 
 export default defineConfig({
   plugins: [
-    dts({
-      include: ['src/**/*'],
-      exclude: ['src/**/*.test.*', 'src/**/*.stories.*']
-    })
+    dts()
   ],
   build: {
     lib: {
@@ -16,7 +13,7 @@ export default defineConfig({
       fileName: () => 'index.d.ts'
     },
     rollupOptions: {
-      external: ['react', 'react-dom']
+      external: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime']
     }
   }
 })
