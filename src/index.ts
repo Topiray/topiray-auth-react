@@ -18,6 +18,11 @@ export { BackArrow } from './components/common/BackArrow'
 export { SocialLoginButtons } from './components/common/SocialLoginButtons'
 export type { ButtonProps, AlertMessageProps, BackArrowProps, SocialLoginButtonsProps } from './components/common/types'
 
+// i18n
+export { I18nProvider, useTranslation } from './i18n/I18nProvider'
+export type { TranslationDictionary } from './i18n/types'
+export { default as en } from './i18n/en.json'
+
 // Auth components
 export { AuthCard } from './components/auth/AuthCard'
 export { SignInForm } from './components/auth/SignInForm'

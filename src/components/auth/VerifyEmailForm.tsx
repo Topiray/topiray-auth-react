@@ -3,6 +3,7 @@ import { Button } from '../common/Button'
 import { BackArrow } from '../common/BackArrow'
 import { VerifyEmailFormProps } from './types'
 import { useTheme } from '../../theme/ThemeProvider'
+import { useTranslation } from '../../i18n/I18nProvider'
 import styles from './VerifyEmailForm.module.css'
 
 export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
@@ -14,6 +15,7 @@ export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
   backArrowFallbackRoute = "/signup"
 }) => {
   const { theme } = useTheme()
+  const { t } = useTranslation()
 
   const containerClasses = [
     styles.container,
@@ -39,20 +41,20 @@ export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
       )}
 
       <div className={styles.imageContainer}>
-        <img className={styles.image} alt="Email verification" src="/images/email-verification.png" />
+        <img className={styles.image} alt={t('topiray.auth.verifyEmail.imageAlt')} src="/images/email-verification.png" />
       </div>
 
       <div className={styles.titleContainer}>
         <div className={styles.title}>
-          <b className={styles.titleText}>Verify your email</b>
+          <b className={styles.titleText}>{t('topiray.auth.verifyEmail.title')}</b>
         </div>
       </div>
 
       <div className={styles.description}>
         <div className={styles.descriptionText}>
-          <span>We sent a verification email to </span>
-          <b>{email || '[your email]'}</b>
-          <span>. Please tap the link inside that email to continue.</span>
+          <span>{t('topiray.auth.verifyEmail.descriptionPrefix')} </span>
+          <b>{email || t('topiray.auth.verifyEmail.emailFallback')}</b>
+          <span>{t('topiray.auth.verifyEmail.descriptionSuffix')}</span>
         </div>
       </div>
 
@@ -61,17 +63,17 @@ export const VerifyEmailForm: React.FC<VerifyEmailFormProps> = ({
         disabled={isLoading}
         fullWidth
       >
-        Check my inbox
+        {t('topiray.auth.verifyEmail.checkInbox')}
       </Button>
 
       <Button 
         variant="secondary" 
         onClick={onResendEmail} 
         isLoading={isLoading}
-        loadingText="Sending..."
+        loadingText={t('topiray.auth.verifyEmail.resendingEmail')}
         fullWidth
       >
-        Resend Email
+        {t('topiray.auth.verifyEmail.resendEmail')}
       </Button>
     </div>
   )

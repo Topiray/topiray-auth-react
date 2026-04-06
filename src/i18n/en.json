@@ -1,0 +1,90 @@
+{
+  "topiray": {
+    "auth": {
+      "signIn": {
+        "title": "Sign in",
+        "emailPlaceholder": "Email",
+        "passwordPlaceholder": "Password",
+        "submitButton": "Continue",
+        "submittingButton": "Signing in...",
+        "dividerText": "or sign in with",
+        "forgotPassword": "Forgot Password?",
+        "noAccount": "Don't have an account?",
+        "signUpLink": "Sign up"
+      },
+      "signUp": {
+        "title": "Create your account",
+        "emailPlaceholder": "Email",
+        "passwordPlaceholder": "Password",
+        "submitButton": "Create Account",
+        "submittingButton": "Creating account...",
+        "dividerText": "or sign up with",
+        "hasAccount": "Already have an account?",
+        "signInLink": "Sign in"
+      },
+      "forgottenPassword": {
+        "title": "Forgot your password?",
+        "description": "Enter your email address associated to your account and we will send you a one time link to reset your password.",
+        "emailPlaceholder": "Email",
+        "submitButton": "Reset Password",
+        "submittingButton": "Sending..."
+      },
+      "resetPassword": {
+        "title": "Reset your password",
+        "description": "Enter your new password below. Make sure it's secure and at least 8 characters long.",
+        "newPasswordPlaceholder": "New Password",
+        "confirmPasswordPlaceholder": "Confirm Password",
+        "submitButton": "Reset Password",
+        "submittingButton": "Resetting...",
+        "errors": {
+          "passwordRequired": "Password is required",
+          "confirmPasswordRequired": "Confirm password is required",
+          "passwordsMismatch": "Passwords do not match"
+        }
+      },
+      "verifyEmail": {
+        "title": "Verify your email",
+        "imageAlt": "Email verification",
+        "descriptionPrefix": "We sent a verification email to",
+        "descriptionSuffix": ". Please tap the link inside that email to continue.",
+        "emailFallback": "[your email]",
+        "checkInbox": "Check my inbox",
+        "resendEmail": "Resend Email",
+        "resendingEmail": "Sending..."
+      },
+      "twoFactor": {
+        "setup": {
+          "title": "Multi-Factor Authentication",
+          "description": "Use your authentication app to scan this QR code. If you don't have an authentication app on your device, you'll need to install one now.",
+          "learnMore": "Learn more",
+          "cantScanQr": "Can't scan the QR code?",
+          "qrPlaceholder": "QR Code will appear here",
+          "manualEntryKey": "Manual entry key:",
+          "cancelButton": "Cancel",
+          "nextButton": "Next",
+          "loadingButton": "Loading..."
+        },
+        "verify": {
+          "title": "Enter your verification code",
+          "description": "Enter the code that you see in your authenticator app",
+          "verifyButton": "Verify",
+          "verifyingButton": "Verifying...",
+          "helpText": "You can also paste your 6-digit code"
+        },
+        "complete": {
+          "title": "You're all set",
+          "descriptionLine1": "Now you can use the mobile authenticator app to get an authentication code any time you log in.",
+          "descriptionLine2": "Save these single-use backup codes in a safe place.",
+          "copyButton": "Copy",
+          "copiedButton": "Copied!",
+          "downloadButton": "Download",
+          "footerText": "These backup codes let you log in if you can't receive a text message or don't have access to any of your other two-factor authentication methods.",
+          "doneButton": "Done",
+          "loadingButton": "Loading...",
+          "copyCodesButton": "Copy Codes",
+          "copiedCodesButton": "Copied!"
+        }
+      }
+    }
+  }
+}

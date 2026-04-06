@@ -3,6 +3,7 @@ import { Check } from 'lucide-react'
 import { Button } from '../common/Button'
 import { TwoFactorSetupCompleteFormProps } from './types'
 import { useTheme } from '../../theme/ThemeProvider'
+import { useTranslation } from '../../i18n/I18nProvider'
 import styles from './TwoFactorSetupCompleteForm.module.css'
 
 export const TwoFactorSetupCompleteForm: React.FC<TwoFactorSetupCompleteFormProps> = ({
@@ -16,6 +17,7 @@ export const TwoFactorSetupCompleteForm: React.FC<TwoFactorSetupCompleteFormProp
   className
 }) => {
   useTheme()
+  const { t } = useTranslation()
   const [copied, setCopied] = useState(false)
 
   const handleDone = () => {
@@ -63,7 +65,7 @@ export const TwoFactorSetupCompleteForm: React.FC<TwoFactorSetupCompleteFormProp
     <div className={containerClasses}>
       <div className={styles.header}>
         <div className={styles.titleContainer}>
-          <b className={styles.title}>You're all set</b>
+          <b className={styles.title}>{t('topiray.auth.twoFactor.complete.title')}</b>
         </div>
         <Check className={styles.checkIcon} />
       </div>
@@ -71,10 +73,10 @@ export const TwoFactorSetupCompleteForm: React.FC<TwoFactorSetupCompleteFormProp
       <div className={styles.description}>
         <div className={styles.descriptionText}>
           <p>
-            Now you can use the mobile authenticator app to get an authentication code any time you log in.
+            {t('topiray.auth.twoFactor.complete.descriptionLine1')}
           </p>
           <p>
-            Save these single-use backup codes in a safe place.
+            {t('topiray.auth.twoFactor.complete.descriptionLine2')}
           </p>
         </div>
       </div>
@@ -102,7 +104,7 @@ export const TwoFactorSetupCompleteForm: React.FC<TwoFactorSetupCompleteFormProp
             type="button"
           >
             <div className={styles.pillTag}>
-              {copied ? 'Copied!' : 'Copy'}
+              {copied ? t('topiray.auth.twoFactor.complete.copiedButton') : t('topiray.auth.twoFactor.complete.copyButton')}
             </div>
           </button>
           <button 
@@ -111,16 +113,14 @@ export const TwoFactorSetupCompleteForm: React.FC<TwoFactorSetupCompleteFormProp
             disabled={isLoading}
             type="button"
           >
-            <div className={styles.pillTag}>Download</div>
+            <div className={styles.pillTag}>{t('topiray.auth.twoFactor.complete.downloadButton')}</div>
           </button>
         </div>
       </div>
 
       <div className={styles.footer}>
         <div className={styles.footerText}>
-          These backup codes let you log in if you can't receive a text message
-          or don't have access to any of your other two-factor authentication
-          methods.
+          {t('topiray.auth.twoFactor.complete.footerText')}
         </div>
       </div>
 
@@ -130,10 +130,10 @@ export const TwoFactorSetupCompleteForm: React.FC<TwoFactorSetupCompleteFormProp
           disabled={isLoading}
           type="button"
           isLoading={isLoading}
-          loadingText="Loading..."
+          loadingText={t('topiray.auth.twoFactor.complete.loadingButton')}
           fullWidth
         >
-          Done
+          {t('topiray.auth.twoFactor.complete.doneButton')}
         </Button>
         <Button 
           variant="secondary"
@@ -142,7 +142,7 @@ export const TwoFactorSetupCompleteForm: React.FC<TwoFactorSetupCompleteFormProp
           type="button"
           fullWidth
         >
-          {copied ? 'Copied!' : 'Copy Codes'}
+          {copied ? t('topiray.auth.twoFactor.complete.copiedCodesButton') : t('topiray.auth.twoFactor.complete.copyCodesButton')}
         </Button>
       </div>
     </div>

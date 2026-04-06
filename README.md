@@ -14,6 +14,7 @@ A comprehensive, themeable React component library for authentication flows. Bui
 - 🔐 **Complete Auth Flow** - Sign in/up, 2FA, email verification, password reset
 - ⚡ **TypeScript** - Full type safety and IntelliSense support
 - 🎯 **Tree Shakeable** - Import only what you need
+- 🌐 **i18n Support** - Built-in internationalization with customizable translations
 
 <img width="1910" height="892" alt="image" src="https://github.com/user-attachments/assets/1eb04b72-be57-477a-96de-2879d2fc9191" />
 <img width="1910" height="892" alt="image" src="https://github.com/user-attachments/assets/089695f9-9558-4cea-af24-fec94ecd2ebb" />
@@ -749,6 +750,195 @@ const handleSocialLogin = (provider: 'google' | 'apple' | 'facebook') => {
 - **Focus Management**: Logical focus flow and focus trapping in modals
 - **High Contrast**: Colors meet WCAG contrast requirements
 - **Reduced Motion**: Respects user's motion preferences
+
+## Internationalization (i18n)
+
+All auth components support internationalization out of the box. English is the default language. You can provide custom translations for any language by wrapping your app with the `I18nProvider`.
+
+### Default Behavior (English)
+
+Without any i18n configuration, all components render in English. No setup is required.
+
+### Adding a New Language
+
+1. Create a translation JSON file following the same structure as the built-in English translations. All keys live under the `topiray.auth` namespace:
+
+```json
+// fr.json
+{
+  "topiray": {
+    "auth": {
+      "signIn": {
+        "title": "Se connecter",
+        "emailPlaceholder": "E-mail",
+        "passwordPlaceholder": "Mot de passe",
+        "submitButton": "Continuer",
+        "submittingButton": "Connexion en cours...",
+        "dividerText": "ou se connecter avec",
+        "forgotPassword": "Mot de passe oublié ?",
+        "noAccount": "Vous n'avez pas de compte ?",
+        "signUpLink": "S'inscrire"
+      },
+      "signUp": {
+        "title": "Créez votre compte",
+        "emailPlaceholder": "E-mail",
+        "passwordPlaceholder": "Mot de passe",
+        "submitButton": "Créer un compte",
+        "submittingButton": "Création du compte...",
+        "dividerText": "ou s'inscrire avec",
+        "hasAccount": "Vous avez déjà un compte ?",
+        "signInLink": "Se connecter"
+      },
+      "forgottenPassword": {
+        "title": "Mot de passe oublié ?",
+        "description": "Entrez l'adresse e-mail associée à votre compte et nous vous enverrons un lien unique pour réinitialiser votre mot de passe.",
+        "emailPlaceholder": "E-mail",
+        "submitButton": "Réinitialiser le mot de passe",
+        "submittingButton": "Envoi en cours..."
+      },
+      "resetPassword": {
+        "title": "Réinitialiser votre mot de passe",
+        "description": "Entrez votre nouveau mot de passe ci-dessous. Assurez-vous qu'il est sécurisé et comporte au moins 8 caractères.",
+        "newPasswordPlaceholder": "Nouveau mot de passe",
+        "confirmPasswordPlaceholder": "Confirmer le mot de passe",
+        "submitButton": "Réinitialiser le mot de passe",
+        "submittingButton": "Réinitialisation...",
+        "errors": {
+          "passwordRequired": "Le mot de passe est requis",
+          "confirmPasswordRequired": "La confirmation du mot de passe est requise",
+          "passwordsMismatch": "Les mots de passe ne correspondent pas"
+        }
+      },
+      "verifyEmail": {
+        "title": "Vérifiez votre e-mail",
+        "imageAlt": "Vérification de l'e-mail",
+        "descriptionPrefix": "Nous avons envoyé un e-mail de vérification à",
+        "descriptionSuffix": ". Veuillez cliquer sur le lien dans cet e-mail pour continuer.",
+        "emailFallback": "[votre e-mail]",
+        "checkInbox": "Vérifier ma boîte de réception",
+        "resendEmail": "Renvoyer l'e-mail",
+        "resendingEmail": "Envoi en cours..."
+      },
+      "twoFactor": {
+        "setup": {
+          "title": "Authentification multi-facteurs",
+          "description": "Utilisez votre application d'authentification pour scanner ce code QR. Si vous n'avez pas d'application d'authentification sur votre appareil, vous devrez en installer une maintenant.",
+          "learnMore": "En savoir plus",
+          "cantScanQr": "Impossible de scanner le code QR ?",
+          "qrPlaceholder": "Le code QR apparaîtra ici",
+          "manualEntryKey": "Clé de saisie manuelle :",
+          "cancelButton": "Annuler",
+          "nextButton": "Suivant",
+          "loadingButton": "Chargement..."
+        },
+        "verify": {
+          "title": "Entrez votre code de vérification",
+          "description": "Entrez le code que vous voyez dans votre application d'authentification",
+          "verifyButton": "Vérifier",
+          "verifyingButton": "Vérification...",
+          "helpText": "Vous pouvez aussi coller votre code à 6 chiffres"
+        },
+        "complete": {
+          "title": "Vous êtes prêt",
+          "descriptionLine1": "Vous pouvez maintenant utiliser l'application d'authentification mobile pour obtenir un code d'authentification chaque fois que vous vous connectez.",
+          "descriptionLine2": "Enregistrez ces codes de secours à usage unique dans un endroit sûr.",
+          "copyButton": "Copier",
+          "copiedButton": "Copié !",
+          "downloadButton": "Télécharger",
+          "footerText": "Ces codes de secours vous permettent de vous connecter si vous ne pouvez pas recevoir de SMS ou si vous n'avez pas accès à vos autres méthodes d'authentification à deux facteurs.",
+          "doneButton": "Terminé",
+          "loadingButton": "Chargement...",
+          "copyCodesButton": "Copier les codes",
+          "copiedCodesButton": "Copié !"
+        }
+      }
+    }
+  }
+}
+```
+
+2. Wrap your app with the `I18nProvider` and pass your translations:
+
+```tsx
+import { ThemeProvider, I18nProvider, defaultTheme } from 'topiray-auth-react'
+import fr from './i18n/fr.json'
+
+function App() {
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <I18nProvider translations={fr}>
+        {/* Your auth components */}
+      </I18nProvider>
+    </ThemeProvider>
+  )
+}
+```
+
+### Partial Translations
+
+You only need to provide the keys you want to override. Any missing keys will automatically fall back to the default English translations:
+
+```tsx
+import { I18nProvider } from 'topiray-auth-react'
+
+const customTranslations = {
+  topiray: {
+    auth: {
+      signIn: {
+        title: "Welcome back",
+        submitButton: "Log in"
+      }
+    }
+  }
+}
+
+<I18nProvider translations={customTranslations}>
+  {/* SignInForm will show "Welcome back" and "Log in", 
+      all other strings fall back to English */}
+</I18nProvider>
+```
+
+### Dynamic Language Switching
+
+Switch languages at runtime by updating the translations passed to `I18nProvider`:
+
+```tsx
+import { I18nProvider, en } from 'topiray-auth-react'
+import fr from './i18n/fr.json'
+import de from './i18n/de.json'
+
+const languages = { en, fr, de }
+
+function App() {
+  const [locale, setLocale] = useState('en')
+
+  return (
+    <I18nProvider translations={languages[locale]}>
+      <select onChange={(e) => setLocale(e.target.value)} value={locale}>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+      </select>
+      {/* Your auth components */}
+    </I18nProvider>
+  )
+}
+```
+
+### Translation Keys Reference
+
+All translation keys are nested under `topiray.auth`. Here is the full key structure:
+
+| Namespace | Keys |
+|-----------|------|
+| `topiray.auth.signIn` | `title`, `emailPlaceholder`, `passwordPlaceholder`, `submitButton`, `submittingButton`, `dividerText`, `forgotPassword`, `noAccount`, `signUpLink` |
+| `topiray.auth.signUp` | `title`, `emailPlaceholder`, `passwordPlaceholder`, `submitButton`, `submittingButton`, `dividerText`, `hasAccount`, `signInLink` |
+| `topiray.auth.forgottenPassword` | `title`, `description`, `emailPlaceholder`, `submitButton`, `submittingButton` |
+| `topiray.auth.resetPassword` | `title`, `description`, `newPasswordPlaceholder`, `confirmPasswordPlaceholder`, `submitButton`, `submittingButton`, `errors.passwordRequired`, `errors.confirmPasswordRequired`, `errors.passwordsMismatch` |
+| `topiray.auth.verifyEmail` | `title`, `imageAlt`, `descriptionPrefix`, `descriptionSuffix`, `emailFallback`, `checkInbox`, `resendEmail`, `resendingEmail` |
+| `topiray.auth.twoFactor.setup` | `title`, `description`, `learnMore`, `cantScanQr`, `qrPlaceholder`, `manualEntryKey`, `cancelButton`, `nextButton`, `loadingButton` |
+| `topiray.auth.twoFactor.verify` | `title`, `description`, `verifyButton`, `verifyingButton`, `helpText` |
+| `topiray.auth.twoFactor.complete` | `title`, `descriptionLine1`, `descriptionLine2`, `copyButton`, `copiedButton`, `downloadButton`, `footerText`, `doneButton`, `loadingButton`, `copyCodesButton`, `copiedCodesButton` |
 
 ## Browser Support
 

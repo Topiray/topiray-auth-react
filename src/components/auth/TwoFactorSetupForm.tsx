@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { CircularProgress } from "@mui/material";
 import { Button } from "../common/Button";
 import { BackArrow } from "../common/BackArrow";
+import { useTranslation } from "../../i18n/I18nProvider";
 import styles from "./TwoFactorSetupForm.module.css";
 
 interface TwoFactorSetupFormProps {
@@ -23,6 +24,7 @@ export const TwoFactorSetupForm: FunctionComponent<TwoFactorSetupFormProps> = ({
   backArrowFallbackRoute = "/accountstatus"
 }) => {
   const qrCodeRef = useRef<HTMLCanvasElement>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (qrCodeUri && qrCodeRef.current) {
@@ -65,12 +67,12 @@ export const TwoFactorSetupForm: FunctionComponent<TwoFactorSetupFormProps> = ({
         <div className={styles.backArrowIcon1} />
       </div>
       <div className={styles.text}>
-        <b className={styles.h3MediumTitle}>Multi-Factor Authentication</b>
+        <b className={styles.h3MediumTitle}>{t('topiray.auth.twoFactor.setup.title')}</b>
       </div>
       <div className={styles.text1}>
         <div className={styles.h6FinePrintContainer}>
-          <span>{`Use your authentication app to scan this QR code. If you don't have an authentication app on your device, you'll need to install one now. `}</span>
-          <a href="https://support.google.com/accounts/answer/1066447?hl=en" target="_blank" rel="noopener noreferrer">Learn more</a>
+          <span>{`${t('topiray.auth.twoFactor.setup.description')} `}</span>
+          <a href="https://support.google.com/accounts/answer/1066447?hl=en" target="_blank" rel="noopener noreferrer">{t('topiray.auth.twoFactor.setup.learnMore')}</a>
         </div>
       </div>
       <div className={styles.qrcontainer}>
@@ -109,11 +111,11 @@ export const TwoFactorSetupForm: FunctionComponent<TwoFactorSetupFormProps> = ({
             backgroundColor: 'var(--color-gray-100)',
             color: 'var(--color-white)'
           }}>
-            <span>QR Code will appear here</span>
+            <span>{t('topiray.auth.twoFactor.setup.qrPlaceholder')}</span>
           </div>
         )}
         <div className={styles.text2}>
-          <div className={styles.h6FinePrint}>Can't scan the QR code?</div>
+          <div className={styles.h6FinePrint}>{t('topiray.auth.twoFactor.setup.cantScanQr')}</div>
         </div>
         {sharedKey && (
           <div style={{ 
@@ -137,16 +139,16 @@ export const TwoFactorSetupForm: FunctionComponent<TwoFactorSetupFormProps> = ({
           disabled={isLoading}
           type="button"
         >
-          Cancel
+          {t('topiray.auth.twoFactor.setup.cancelButton')}
         </Button>
         <Button 
           onClick={handleNext}
           disabled={isLoading}
           type="button"
           isLoading={isLoading}
-          loadingText="Loading..."
+          loadingText={t('topiray.auth.twoFactor.setup.loadingButton')}
         >
-          Next
+          {t('topiray.auth.twoFactor.setup.nextButton')}
         </Button>
       </div>
     </div>

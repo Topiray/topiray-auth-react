@@ -4,6 +4,7 @@ import { Button } from '../common/Button'
 import { AlertMessage } from '../common/AlertMessage'
 import { ResetPasswordFormProps } from './types'
 import { useTheme } from '../../theme/ThemeProvider'
+import { useTranslation } from '../../i18n/I18nProvider'
 import styles from './ResetPasswordForm.module.css'
 
 export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
@@ -15,6 +16,7 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
   backArrowFallbackRoute = "/signin"
 }) => {
   const { theme } = useTheme()
+  const { t } = useTranslation()
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState(errorStr || '')
@@ -28,17 +30,17 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
     setError('')
 
     if (!password) {
-      setError('Password is required')
+      setError(t('topiray.auth.resetPassword.errors.passwordRequired'))
       return
     }
 
     if (!confirmPassword) {
-      setError('Confirm password is required')
+      setError(t('topiray.auth.resetPassword.errors.confirmPasswordRequired'))
       return
     }
 
     if (password !== confirmPassword) {
-      setError('Passwords do not match')
+      setError(t('topiray.auth.resetPassword.errors.passwordsMismatch'))
       return
     }
     onSubmit(password)
@@ -63,7 +65,7 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
       )}
       
       <div className={styles.titleContainer}>
-        <b className={styles.title}>Reset your password</b>
+        <b className={styles.title}>{t('topiray.auth.resetPassword.title')}</b>
       </div>
       
       <div className={styles.description}>
@@ -84,7 +86,7 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
         required 
         className={styles.passwordInput} 
         type="password" 
-        placeholder="New Password"
+        placeholder={t('topiray.auth.resetPassword.newPasswordPlaceholder')}
         value={password} 
         onChange={(e) => setPassword(e.target.value)}
         disabled={isLoading} 
@@ -94,7 +96,7 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
         required 
         className={styles.passwordInput} 
         type="password" 
-        placeholder="Confirm Password"
+        placeholder={t('topiray.auth.resetPassword.confirmPasswordPlaceholder')}
         value={confirmPassword} 
         onChange={(e) => setConfirmPassword(e.target.value)}
         disabled={isLoading} 
@@ -103,10 +105,10 @@ export const ResetPasswordForm: React.FC<ResetPasswordFormProps> = ({
       <Button
         type="submit"
         isLoading={isLoading}
-        loadingText="Resetting..."
+        loadingText={t('topiray.auth.resetPassword.submittingButton')}
         fullWidth
       >
-        Reset Password
+        {t('topiray.auth.resetPassword.submitButton')}
       </Button>
     </form>
   )

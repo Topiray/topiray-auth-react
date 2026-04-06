@@ -4,6 +4,7 @@ import { Button } from "../common/Button";
 import { SocialLoginButtons } from "../common/SocialLoginButtons";
 import { SignUpFormProps } from "./types";
 import { useTheme } from "../../theme/ThemeProvider";
+import { useTranslation } from "../../i18n/I18nProvider";
 import styles from "./SignUpForm.module.css";
 
 export const SignUpForm: React.FC<SignUpFormProps> = ({
@@ -17,6 +18,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
   className,
 }) => {
   const { theme } = useTheme();
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [accountType, setAccountType] = useState<
@@ -37,7 +39,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
       {theme.customization.showFormHeader && (
         <div className={styles.formHeader}>
           <div className={styles.titleContainer}>
-            <b className={styles.title}>Create your account</b>
+            <b className={styles.title}>{t('topiray.auth.signUp.title')}</b>
           </div>
           {(logoSrc || theme.brand.secondaryLogo) &&
             theme.customization.showLogo && (
@@ -72,7 +74,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
       <form onSubmit={handleSubmit} className={styles.form}>
         <input
           className={styles.inputField}
-          placeholder="Email"
+          placeholder={t('topiray.auth.signUp.emailPlaceholder')}
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -82,7 +84,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
 
         <input
           className={styles.inputField}
-          placeholder="Password"
+          placeholder={t('topiray.auth.signUp.passwordPlaceholder')}
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -93,10 +95,10 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
         <Button
           type="submit"
           isLoading={isLoading}
-          loadingText="Creating account..."
+          loadingText={t('topiray.auth.signUp.submittingButton')}
           fullWidth
         >
-          Create Account
+          {t('topiray.auth.signUp.submitButton')}
         </Button>
       </form>
 
@@ -105,7 +107,7 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
           <div className={styles.divider}>
             <div className={styles.dividerLine} />
             <div className={styles.dividerText}>
-              <div className={styles.caption}>or sign up with</div>
+              <div className={styles.caption}>{t('topiray.auth.signUp.dividerText')}</div>
             </div>
             <div className={styles.dividerLine} />
           </div>
@@ -120,14 +122,14 @@ export const SignUpForm: React.FC<SignUpFormProps> = ({
 
       <div className={styles.footerContainer}>
         <div className={styles.footerRow}>
-          <span className={styles.caption}>Already have an account? </span>
+          <span className={styles.caption}>{t('topiray.auth.signUp.hasAccount')} </span>
           <button
             type="button"
             className={styles.linkButton}
             onClick={onSignIn}
             disabled={isLoading}
           >
-            Sign in
+            {t('topiray.auth.signUp.signInLink')}
           </button>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { BackArrow } from '../common/BackArrow'
 import { Button } from '../common/Button'
 import { ForgottenPasswordFormProps } from './types'
 import { useTheme } from '../../theme/ThemeProvider'
+import { useTranslation } from '../../i18n/I18nProvider'
 import styles from './ForgottenPasswordForm.module.css'
 
 export const ForgottenPasswordForm: React.FC<ForgottenPasswordFormProps> = ({
@@ -12,6 +13,7 @@ export const ForgottenPasswordForm: React.FC<ForgottenPasswordFormProps> = ({
   backArrowFallbackRoute = "/signin"
 }) => {
   const { theme } = useTheme()
+  const { t } = useTranslation()
   const [email, setEmail] = useState('')
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -38,13 +40,12 @@ export const ForgottenPasswordForm: React.FC<ForgottenPasswordFormProps> = ({
       )}
       
       <div className={styles.titleContainer}>
-        <b className={styles.title}>Forgot your password?</b>
+        <b className={styles.title}>{t('topiray.auth.forgottenPassword.title')}</b>
       </div>
       
       <div className={styles.description}>
         <div className={styles.descriptionText}>
-          Enter your email address associated to your account and we will send
-          you a one time link to reset your password.
+          {t('topiray.auth.forgottenPassword.description')}
         </div>
       </div>
       
@@ -52,7 +53,7 @@ export const ForgottenPasswordForm: React.FC<ForgottenPasswordFormProps> = ({
         required 
         className={styles.emailInput} 
         type="email" 
-        placeholder="Email"
+        placeholder={t('topiray.auth.forgottenPassword.emailPlaceholder')}
         value={email} 
         onChange={(e) => setEmail(e.target.value)}
         disabled={isLoading} 
@@ -61,10 +62,10 @@ export const ForgottenPasswordForm: React.FC<ForgottenPasswordFormProps> = ({
       <Button
         type="submit"
         isLoading={isLoading}
-        loadingText="Sending..."
+        loadingText={t('topiray.auth.forgottenPassword.submittingButton')}
         fullWidth
       >
-        Reset Password
+        {t('topiray.auth.forgottenPassword.submitButton')}
       </Button>
     </form>
   )

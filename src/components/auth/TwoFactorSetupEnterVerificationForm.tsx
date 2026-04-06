@@ -4,6 +4,7 @@ import { BackArrow } from '../common/BackArrow'
 import { AlertMessage } from '../common/AlertMessage'
 import { TwoFactorSetupEnterVerificationFormProps } from './types'
 import { useTheme } from '../../theme/ThemeProvider'
+import { useTranslation } from '../../i18n/I18nProvider'
 import styles from './TwoFactorSetupEnterVerificationForm.module.css'
 
 export const TwoFactorSetupEnterVerificationForm: React.FC<TwoFactorSetupEnterVerificationFormProps> = ({
@@ -14,6 +15,7 @@ export const TwoFactorSetupEnterVerificationForm: React.FC<TwoFactorSetupEnterVe
   className
 }) => {
   const { theme } = useTheme()
+  const { t } = useTranslation()
   const [code, setCode] = useState(['', '', '', '', '', ''])
   const inputRefs = useRef<(HTMLInputElement | null)[]>([])
 
@@ -99,12 +101,12 @@ export const TwoFactorSetupEnterVerificationForm: React.FC<TwoFactorSetupEnterVe
       )}
 
       <div className={styles.titleContainer}>
-        <b className={styles.title}>Enter your verification code</b>
+        <b className={styles.title}>{t('topiray.auth.twoFactor.verify.title')}</b>
       </div>
 
       <div className={styles.description}>
         <div className={styles.descriptionText}>
-          Enter the code that you see in your authenticator app
+          {t('topiray.auth.twoFactor.verify.description')}
         </div>
       </div>
 
@@ -135,14 +137,14 @@ export const TwoFactorSetupEnterVerificationForm: React.FC<TwoFactorSetupEnterVe
         disabled={!isCodeComplete || isLoading}
         type="button"
         isLoading={isLoading}
-        loadingText="Verifying..."
+        loadingText={t('topiray.auth.twoFactor.verify.verifyingButton')}
         fullWidth
       >
-        Verify
+        {t('topiray.auth.twoFactor.verify.verifyButton')}
       </Button>
 
       <div className={styles.helpText}>
-        You can also paste your 6-digit code
+        {t('topiray.auth.twoFactor.verify.helpText')}
       </div>
     </div>
   )
