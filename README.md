@@ -947,6 +947,10 @@ All translation keys are nested under `topiray.auth`. Here is the full key struc
 - Safari 14+
 - Edge 90+
 
+## Authors
+
+JayArrowz
+
 ## Contributing
 
 1. Fork the repository
@@ -954,7 +958,6 @@ All translation keys are nested under `topiray.auth`. Here is the full key struc
 3. Make your changes
 4. Add tests for new functionality
 5. Submit a pull request
-
 
 ## Support
 
