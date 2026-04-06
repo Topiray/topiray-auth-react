@@ -1,0 +1,90 @@
+{
+  "topiray": {
+    "auth": {
+      "signIn": {
+        "title": "Mewngofnodi",
+        "emailPlaceholder": "E-bost",
+        "passwordPlaceholder": "Cyfrinair",
+        "submitButton": "Parhau",
+        "submittingButton": "Mewngofnodi...",
+        "dividerText": "neu fewngofnodi gyda",
+        "forgotPassword": "Wedi Anghofio Cyfrinair?",
+        "noAccount": "Heb gyfrif?",
+        "signUpLink": "Cofrestru"
+      },
+      "signUp": {
+        "title": "Creu eich cyfrif",
+        "emailPlaceholder": "E-bost",
+        "passwordPlaceholder": "Cyfrinair",
+        "submitButton": "Creu Cyfrif",
+        "submittingButton": "Creu cyfrif...",
+        "dividerText": "neu gofrestru gyda",
+        "hasAccount": "Eisoes â chyfrif?",
+        "signInLink": "Mewngofnodi"
+      },
+      "forgottenPassword": {
+        "title": "Wedi anghofio eich cyfrinair?",
+        "description": "Rhowch y cyfeiriad e-bost sy'n gysylltiedig â'ch cyfrif a byddwn yn anfon dolen unwaith i ailosod eich cyfrinair.",
+        "emailPlaceholder": "E-bost",
+        "submitButton": "Ailosod Cyfrinair",
+        "submittingButton": "Anfon..."
+      },
+      "resetPassword": {
+        "title": "Ailosod eich cyfrinair",
+        "description": "Rhowch eich cyfrinair newydd isod. Gwnewch yn siŵr ei fod yn ddiogel ac o leiaf 8 nod o hyd.",
+        "newPasswordPlaceholder": "Cyfrinair Newydd",
+        "confirmPasswordPlaceholder": "Cadarnhau Cyfrinair",
+        "submitButton": "Ailosod Cyfrinair",
+        "submittingButton": "Ailosod...",
+        "errors": {
+          "passwordRequired": "Mae angen cyfrinair",
+          "confirmPasswordRequired": "Mae angen cadarnhau'r cyfrinair",
+          "passwordsMismatch": "Nid yw'r cyfrineiriau yn cyfateb"
+        }
+      },
+      "verifyEmail": {
+        "title": "Dilysu eich e-bost",
+        "imageAlt": "Dilysu e-bost",
+        "descriptionPrefix": "Anfonwyd e-bost dilysu at",
+        "descriptionSuffix": ". Tapiwch y ddolen yn yr e-bost hwnnw i barhau.",
+        "emailFallback": "[eich e-bost]",
+        "checkInbox": "Gwirio fy mewnflwch",
+        "resendEmail": "Ail-anfon E-bost",
+        "resendingEmail": "Anfon..."
+      },
+      "twoFactor": {
+        "setup": {
+          "title": "Dilysu Aml-Ffactor",
+          "description": "Defnyddiwch eich ap dilysu i sganio'r cod QR hwn. Os nad oes gennych ap dilysu ar eich dyfais, bydd angen i chi osod un nawr.",
+          "learnMore": "Dysgu mwy",
+          "cantScanQr": "Methu sganio'r cod QR?",
+          "qrPlaceholder": "Bydd y Cod QR yn ymddangos yma",
+          "manualEntryKey": "Allwedd cofnod â llaw:",
+          "cancelButton": "Canslo",
+          "nextButton": "Nesaf",
+          "loadingButton": "Llwytho..."
+        },
+        "verify": {
+          "title": "Rhowch eich cod dilysu",
+          "description": "Rhowch y cod sy'n ymddangos yn eich ap dilysu",
+          "verifyButton": "Dilysu",
+          "verifyingButton": "Dilysu...",
+          "helpText": "Gallwch hefyd gludo eich cod 6 digid"
+        },
+        "complete": {
+          "title": "Rydych chi'n barod",
+          "descriptionLine1": "Nawr gallwch ddefnyddio'r ap dilysu symudol i gael cod dilysu unrhyw bryd y byddwch yn mewngofnodi.",
+          "descriptionLine2": "Cadwch y codau wrth gefn defnydd-unwaith hyn mewn lle diogel.",
+          "copyButton": "Copïo",
+          "copiedButton": "Wedi copïo!",
+          "downloadButton": "Lawrlwytho",
+          "footerText": "Mae'r codau wrth gefn hyn yn eich galluogi i fewngofnodi os na allwch dderbyn neges destun neu os nad oes gennych fynediad at unrhyw un o'ch dulliau dilysu dau-ffactor eraill.",
+          "doneButton": "Gorffen",
+          "loadingButton": "Llwytho...",
+          "copyCodesButton": "Copïo Codau",
+          "copiedCodesButton": "Wedi copïo!"
+        }
+      }
+    }
+  }
+}
